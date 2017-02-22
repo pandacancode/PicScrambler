@@ -47,15 +47,9 @@
     return self;
 }
 
-// Separate Server Communication class can be created here...
 -(void) getFlickrPhotos {
     
     [sharedComm sendRequestToServer];
-}
-
--(void) flickImageCells {
-    
-    
 }
 
 -(void) resetValues {
@@ -64,11 +58,14 @@
     randomChecker = [[NSMutableArray alloc] initWithCapacity:9];
 }
 
+
+/**
+ This method generates a random number between 0-8. An array 'randomChecker' is being used to check if the object was already chosen before. If yes then the same method is called again, else the new random number is added to randomChecker and object is returned. 
+ */
 -(void) getRandomObject {
     
     NSUInteger random = arc4random_uniform(9);
     
-    NSLog(@"Random generated - %ld",random);
     if ([randomChecker containsObject:@(random)]) {
         [self getRandomObject];
     }

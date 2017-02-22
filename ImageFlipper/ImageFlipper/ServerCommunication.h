@@ -9,7 +9,6 @@
 
 #import <Foundation/Foundation.h>
 
-
 typedef enum : NSUInteger
 {
     GET,
@@ -19,10 +18,14 @@ typedef enum : NSUInteger
     PUT
 } REQUEST_METHOD;
 
+
+/**
+ User needs to conform to this protocol to receive main events by the ServerCommunication class
+ */
 @protocol ServerCommunicationDelegate <NSObject>
 
 /**
- Callback for '', which implementing class will recieve when the data fetching from server completes.
+ Callback for 'sendRequestToServer', which implementing class will recieve when the data fetching from server completes.
 
  @param data Recieved data is NSData format. Conforming class is free to convert this in required format.
  @param error Contains error details in case of failure, nil if server call succeeded.
@@ -39,6 +42,9 @@ typedef enum : NSUInteger
 @end
 
 
+/**
+ Basic communication class which provides facility to send requests to server. User can configure URL, request methods(GET/POST etc.), request parameters using this class. 
+ */
 @interface ServerCommunication : NSObject
 
 @property (nonatomic) id<ServerCommunicationDelegate> delegate;

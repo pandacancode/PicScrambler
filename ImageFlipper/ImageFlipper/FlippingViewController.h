@@ -15,9 +15,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *directionLabel;
 
 @property (weak, nonatomic) IBOutlet UIImageView *randomImageView;
+@property (weak, nonatomic) IBOutlet UIButton *playAgainBtn;
 
-@property (weak, nonatomic) IBOutlet UIButton *birds;
-@property (weak, nonatomic) IBOutlet UIButton *flowers;
-@property (weak, nonatomic) IBOutlet UIButton *automobile;
+- (IBAction)playAgainPressed:(UIButton *)sender;
 
 @end

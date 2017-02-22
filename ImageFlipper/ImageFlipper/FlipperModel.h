@@ -17,38 +17,54 @@
 @protocol FlipperDelegate <NSObject>
 
 /**
- Callback for 'getFlickrPhotos' method.
+ Callback for 'getFlickrPhotos' method. Calling class gets the response/error in this callback if conforming to this protocol.
 
  @param response JSON Response if the fetch was successfull
  @param error Error object if error occurred else nil
  */
 -(void) fetchedPhotosWithResponse:(id)response withError:(NSError*)error;
 
-
-
 /**
- <#Description#>
+ Callback for 'getRandomObject' method. Calling class gets the random ImageObject in this callback if conforming to this protocol. This is used to show to user for guessing.
 
- @param object <#object description#>
+ @param object ImageObject randomly chosen
  */
 -(void) receivedRandomObject:(ImageObject*)object;
 
 @end
 
 /**
- Flipper model class
+ This class acts as a controller between communication class and ViewController class.
  */
 @interface FlipperModel : NSObject <ServerCommunicationDelegate>
 
 @property (nonatomic) id<FlipperDelegate> delegate;
 
+
+/**
+ Designated initialiser to receive required information for setting up server connection.
+
+ @param url URL to connect to
+ @param params Request parameters if any
+ @param method Request method
+ @return Returns self object
+ */
 -(id) initWithURLString:(NSString*)url withParams:(NSDictionary*)params withRequestMethod:(REQUEST_METHOD)method;
 
+
+/**
+ Method which initiates the server call to fetch Flickr photos
+ */
 -(void) getFlickrPhotos;
 
--(void) flickImageCells;
-
+/**
+ This method selects a random ImageObject and returns in a callback
+ */
 -(void) getRandomObject;
+
+/**
+ Method to reset local values in this class when game's next iteration starts 
+ */
 -(void) resetValues;
 
 @end

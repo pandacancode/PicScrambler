@@ -21,6 +21,8 @@
     
     ImageObject *randomObject;
     NSInteger imagesLoaded;
+    
+    BOOL wrongOneSelected;
 }
 @end
 
@@ -32,6 +34,7 @@
     // Do any additional setup after loading the view.
     
     imagesLoaded = 0;
+    wrongOneSelected = FALSE;
     
     self.imageGridCollection.delegate = self;
     self.imageGridCollection.dataSource = self;
@@ -45,6 +48,7 @@
     timer = [NSTimer timerWithTimeInterval:1 target:self selector:@selector(startTimer) userInfo:nil repeats:YES];
     [self.timerLabel setHidden:YES];
     [self.directionLabel setHidden:YES];
+    [self.playAgainBtn setHidden:YES];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -57,7 +61,7 @@
        
         [self.timerLabel setHidden:NO];
         self.timerLabel.text = [NSString stringWithFormat:@"%d",[self.timerLabel.text intValue]-1];
-        NSLog(@"Timer label - %@", self.timerLabel.text);
+//        NSLog(@"Timer label - %@", self.timerLabel.text);
         
         if ([self.timerLabel.text isEqualToString:@"0"]) {
             
@@ -70,6 +74,10 @@
     });
 }
 
+
+/**
+ This method first checks if all the objects in array were visited or not. If yes then next iteration starts otherwise new random object is asked for.
+ */
 -(void) getRandomAndShowRandom {
     
     int count = 0;
@@ -91,20 +99,18 @@
     
     UIAlertController *sucessAlert = [UIAlertController alertControllerWithTitle:@"Congrats" message:@"You completed the challenge. Wish to continue?." preferredStyle:UIAlertControllerStyleAlert];
     
-    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil];    
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        [flipper resetValues];
+        [self resetValues];
+        [self flipAndFinish];
+    }];
     UIAlertAction *reloadAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         
         //Setting up timer with TimeInterval as 1 sec
         timer = [NSTimer timerWithTimeInterval:1 target:self selector:@selector(startTimer) userInfo:nil repeats:YES];
         
         [flipper resetValues];
-        [self.directionLabel setHidden:YES];
-        [self.timerLabel setHidden:YES];
-        [self.timerLabel setText:@"16"];
-        [self.randomImageView setImage:nil];
-        imageObjects = nil;
-        imagesLoaded = 0;
-        
+        [self resetValues];
         [flipper getFlickrPhotos];
     }];
     
@@ -112,6 +118,29 @@
     [sucessAlert addAction:reloadAction];
     
     [self presentViewController:sucessAlert animated:YES completion:nil];
+}
+
+-(void) resetValues {
+    
+    [self.directionLabel setHidden:YES];
+    [self.timerLabel setHidden:YES];
+    [self.timerLabel setText:@"16"];
+    [self.randomImageView setImage:nil];
+    imageObjects = nil;
+    imagesLoaded = 0;
+}
+
+-(void) flipAndFinish {
+    
+    for (ImageObject *obj in imageObjects) {
+        obj.isVisible = FALSE;
+    }
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+      
+        [self.imageGridCollection reloadData];
+        [self.playAgainBtn setHidden:NO];
+    });
 }
 
 -(void) flipBackImages {
@@ -124,9 +153,18 @@
     [self.imageGridCollection performBatchUpdates:^{}
                                   completion:^(BOOL finished) {
                                       
-                                      NSLog(@"Reload ended");
+                                      //NSLog(@"Reload ended");
                                       [self getRandomAndShowRandom];
                                   }];
+}
+
+- (IBAction)playAgainPressed:(UIButton *)sender {
+    
+    //Setting up timer with TimeInterval as 1 sec
+    timer = [NSTimer timerWithTimeInterval:1 target:self selector:@selector(startTimer) userInfo:nil repeats:YES];
+    
+    [flipper getFlickrPhotos];
+    [self.playAgainBtn setHidden:YES];
 }
 
 #pragma FlipperModel delegates
@@ -140,18 +178,17 @@
         dispatch_async(dispatch_get_main_queue(), ^{
             
             [self.imageGridCollection reloadData];
-            [self.imageGridCollection performBatchUpdates:^{}
-                                               completion:^(BOOL finished) {
-                                                   
-                                                   NSLog(@"Reload ended");
-                                               }];
         });
     }
     else {
-        NSLog(@"Proper JSON note recieved - %@",[error description]);
-        UIAlertController *failAlert = [UIAlertController alertControllerWithTitle:@"Error" message:@"Image download failed. Please try again." preferredStyle:UIAlertControllerStyleAlert];
+        NSLog(@"Proper JSON not recieved - %@",[error description]);
+        UIAlertController *failAlert = [UIAlertController alertControllerWithTitle:@"Error" message:@"Damn you Flickr!!. Please try again." preferredStyle:UIAlertControllerStyleAlert];
         
-        UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"No,thanks!" style:UIAlertActionStyleCancel handler:nil];
+        UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"No,thanks!" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+            [flipper resetValues];
+            [self resetValues];
+            [self flipAndFinish];
+        }];
         UIAlertAction *reloadAction = [UIAlertAction actionWithTitle:@"Reload" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
             [flipper getFlickrPhotos];
         }];
@@ -200,7 +237,7 @@
     UIImageView *randomImage = (UIImageView *)[cell viewWithTag:100];
     [randomImage setContentMode:UIViewContentModeScaleToFill];
     
-    if (![[imageObjects objectAtIndex:indexPath.row] isVisible]) {
+    if (![[imageObjects objectAtIndex:indexPath.row] isVisible] && !wrongOneSelected) {
         
         UIImage *placeholderImage = [UIImage imageNamed:@"placeholder.png"];
         [UIView transitionWithView:randomImage
@@ -209,6 +246,26 @@
                         animations:^{
                             randomImage.image = placeholderImage;
                         } completion:nil];
+    }
+    else if (wrongOneSelected) {
+        
+        UIImage *placeholderWrongImage = [UIImage imageNamed:@"placeholderwrong.png"];
+        UIImage *placeholderImage = [UIImage imageNamed:@"placeholder.png"];
+        
+        [UIView transitionWithView:randomImage
+                          duration:0.25
+                           options:UIViewAnimationOptionTransitionCrossDissolve
+                        animations:^{
+                            randomImage.image = placeholderWrongImage;
+                        } completion: ^(BOOL finished) {
+                            [UIView transitionWithView:randomImage
+                                              duration:0.25
+                                               options:UIViewAnimationOptionTransitionCrossDissolve
+                                            animations:^{
+                                                randomImage.image = placeholderImage;
+                                            } completion:nil];
+                        }
+         ];
     }
     else {
      
@@ -226,7 +283,6 @@
                                     randomImage.alpha = 1.0;
                                 } completion:NULL];
             }
-            NSLog(@"Images Loaded - %ld", imagesLoaded);
             if (imagesLoaded == 9) {
                 [[NSRunLoop mainRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
             }
@@ -260,6 +316,8 @@
     
     if (indexPath.row == randomObject.imageIndex) {
         
+        wrongOneSelected = FALSE;
+        
         [[imageObjects objectAtIndex:indexPath.row] setIsVisible:TRUE];
         [[imageObjects objectAtIndex:indexPath.row] setWasSelected:TRUE];
         
@@ -267,12 +325,13 @@
         [collectionView performBatchUpdates:^{}
                                            completion:^(BOOL finished) {
                                                
-                                               NSLog(@"Image Flipped");
+                                               //NSLog(@"Image Flipped");
                                                [self getRandomAndShowRandom];
                                            }];
     }
     else {
-        
+        wrongOneSelected = TRUE;
+        [collectionView reloadItemsAtIndexPaths:@[indexPath]];
     }
 }
 

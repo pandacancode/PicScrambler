@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+
+/**
+ This class is used to just define the header and footer of main collection view.
+ */
 @interface FlippingCollectionReusableView : UICollectionReusableView
 
 @property (weak, nonatomic) IBOutlet UIImageView *backgroundImageHeader;

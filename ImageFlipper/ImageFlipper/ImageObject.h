@@ -8,8 +8,20 @@
 
 #import <Foundation/Foundation.h>
 
+
+/**
+ This class is used to consolidate and maintain the image states, path(url) and index.
+ */
 @interface ImageObject : NSObject
 
+
+/**
+ Designated initialiser to create an ImageObject with path and index.
+
+ @param path Web link where the image is available
+ @param index Index of this link in the array
+ @return Returns self object
+ */
 -(id) initWithImagePath:(NSString*)path withIndex:(NSUInteger)index;
 
 @property (nonatomic) NSString *imagePath;

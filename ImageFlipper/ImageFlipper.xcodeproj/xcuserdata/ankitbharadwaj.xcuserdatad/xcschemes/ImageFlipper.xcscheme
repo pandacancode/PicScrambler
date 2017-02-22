@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "7B0D85CD1E59E0A4000251BA"
-               BuildableName = "ImageFlipper.app"
+               BuildableName = "PicScrambler.app"
                BlueprintName = "ImageFlipper"
                ReferencedContainer = "container:ImageFlipper.xcodeproj">
             </BuildableReference>
@@ -43,7 +43,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "7B0D85CD1E59E0A4000251BA"
-            BuildableName = "ImageFlipper.app"
+            BuildableName = "PicScrambler.app"
             BlueprintName = "ImageFlipper"
             ReferencedContainer = "container:ImageFlipper.xcodeproj">
          </BuildableReference>
@@ -66,7 +66,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "7B0D85CD1E59E0A4000251BA"
-            BuildableName = "ImageFlipper.app"
+            BuildableName = "PicScrambler.app"
             BlueprintName = "ImageFlipper"
             ReferencedContainer = "container:ImageFlipper.xcodeproj">
          </BuildableReference>
@@ -85,7 +85,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "7B0D85CD1E59E0A4000251BA"
-            BuildableName = "ImageFlipper.app"
+            BuildableName = "PicScrambler.app"
             BlueprintName = "ImageFlipper"
             ReferencedContainer = "container:ImageFlipper.xcodeproj">
          </BuildableReference>

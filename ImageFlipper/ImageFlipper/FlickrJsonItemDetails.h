@@ -13,10 +13,10 @@
 
 @interface FlickrJsonItemDetails : JSONModel
 
-@property (nonatomic) NSString *title;
-@property (nonatomic) NSString *link;
+@property (nonatomic) NSString<Optional> *title;
+@property (nonatomic) NSString<Optional> *link;
 @property (nonatomic) NSDictionary *media;
-@property (nonatomic) NSString *author;
-@property (nonatomic) NSString *author_id;
+@property (nonatomic) NSString<Optional> *author;
+@property (nonatomic) NSString<Optional> *author_id;
 
 @end

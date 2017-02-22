@@ -23,6 +23,8 @@
 		7B9B0D911E5B2BCA0087B49A /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = 7B9B0D901E5B2BCA0087B49A /* background.png */; };
 		7B9B0D931E5B2E7A0087B49A /* buttonbg.png in Resources */ = {isa = PBXBuildFile; fileRef = 7B9B0D921E5B2E7A0087B49A /* buttonbg.png */; };
 		7B9B0D961E5B75CF0087B49A /* ImageObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B9B0D951E5B75CF0087B49A /* ImageObject.m */; };
+		7BC933CB1E5E1B9C0081C8CA /* appbg.png in Resources */ = {isa = PBXBuildFile; fileRef = 7BC933CA1E5E1B9C0081C8CA /* appbg.png */; };
+		7BCC00DA1E5E15BE00ACDF2B /* placeholderwrong.png in Resources */ = {isa = PBXBuildFile; fileRef = 7BCC00D91E5E15BE00ACDF2B /* placeholderwrong.png */; };
 		C18A6C5277A1590276D06D65 /* libPods-ImageFlipper.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7802D0382B3FF16ED010CB31 /* libPods-ImageFlipper.a */; };
 		FC53E000B05DB5F1DC8BB604 /* libPods-ImageFlipperTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0840FE1CFF888419DB7A3758 /* libPods-ImageFlipperTests.a */; };
 /* End PBXBuildFile section */
@@ -42,7 +44,7 @@
 		0C8C880E2FAC31F59442BCCF /* Pods-ImageFlipperTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ImageFlipperTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ImageFlipperTests/Pods-ImageFlipperTests.release.xcconfig"; sourceTree = "<group>"; };
 		3036589B564A1E01E4DE7CC6 /* Pods-ImageFlipperTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ImageFlipperTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ImageFlipperTests/Pods-ImageFlipperTests.debug.xcconfig"; sourceTree = "<group>"; };
 		7802D0382B3FF16ED010CB31 /* libPods-ImageFlipper.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ImageFlipper.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		7B0D85CE1E59E0A4000251BA /* ImageFlipper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ImageFlipper.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		7B0D85CE1E59E0A4000251BA /* PicScrambler.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PicScrambler.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B0D85D21E59E0A4000251BA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		7B0D85D41E59E0A4000251BA /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		7B0D85D51E59E0A4000251BA /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -70,6 +72,9 @@
 		7B9B0D921E5B2E7A0087B49A /* buttonbg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = buttonbg.png; sourceTree = "<group>"; };
 		7B9B0D941E5B75CF0087B49A /* ImageObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageObject.h; sourceTree = "<group>"; };
 		7B9B0D951E5B75CF0087B49A /* ImageObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageObject.m; sourceTree = "<group>"; };
+		7BC933CA1E5E1B9C0081C8CA /* appbg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = appbg.png; sourceTree = "<group>"; };
+		7BCC00D71E5E12E700ACDF2B /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		7BCC00D91E5E15BE00ACDF2B /* placeholderwrong.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = placeholderwrong.png; sourceTree = "<group>"; };
 		C369C76394ECF5AAECBF44AF /* Pods-ImageFlipper.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ImageFlipper.release.xcconfig"; path = "Pods/Target Support Files/Pods-ImageFlipper/Pods-ImageFlipper.release.xcconfig"; sourceTree = "<group>"; };
 		D3633BB02E217E8AB5879BEB /* Pods-ImageFlipper.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ImageFlipper.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ImageFlipper/Pods-ImageFlipper.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -108,7 +113,7 @@
 		7B0D85CF1E59E0A4000251BA /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				7B0D85CE1E59E0A4000251BA /* ImageFlipper.app */,
+				7B0D85CE1E59E0A4000251BA /* PicScrambler.app */,
 				7B0D85E71E59E0A4000251BA /* ImageFlipperTests.xctest */,
 			);
 			name = Products;
@@ -118,16 +123,13 @@
 			isa = PBXGroup;
 			children = (
 				7B9B0D881E5AE3510087B49A /* Resources */,
-				7B9B0D8D1E5B27F60087B49A /* FlippingCollectionReusableView.h */,
+				7BCC00D61E5E04A600ACDF2B /* JSON Models */,
 				7B9B0D8E1E5B27F60087B49A /* FlippingCollectionReusableView.m */,
+				7B9B0D8D1E5B27F60087B49A /* FlippingCollectionReusableView.h */,
 				7B9B0D941E5B75CF0087B49A /* ImageObject.h */,
 				7B9B0D951E5B75CF0087B49A /* ImageObject.m */,
 				7B32F4021E5A85BE0031198C /* ServerCommunication.h */,
 				7B32F4031E5A85BE0031198C /* ServerCommunication.m */,
-				7B9B0D811E5ABCF60087B49A /* FlickrJsonItemDetails.h */,
-				7B9B0D821E5ABCF60087B49A /* FlickrJsonItemDetails.m */,
-				7B0D85FE1E5A17AE000251BA /* FlickrJsonModel.h */,
-				7B0D85FF1E5A17AE000251BA /* FlickrJsonModel.m */,
 				7B0D85FA1E5A05D9000251BA /* FlipperModel.h */,
 				7B0D85FB1E5A05D9000251BA /* FlipperModel.m */,
 				7B0D85F61E59E26C000251BA /* FlippingViewController.h */,
@@ -171,11 +173,24 @@
 		7B9B0D881E5AE3510087B49A /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				7BC933CA1E5E1B9C0081C8CA /* appbg.png */,
+				7BCC00D91E5E15BE00ACDF2B /* placeholderwrong.png */,
 				7B9B0D921E5B2E7A0087B49A /* buttonbg.png */,
 				7B9B0D901E5B2BCA0087B49A /* background.png */,
 				7B9B0D891E5AE3640087B49A /* placeholder.png */,
 			);
 			name = Resources;
+			sourceTree = "<group>";
+		};
+		7BCC00D61E5E04A600ACDF2B /* JSON Models */ = {
+			isa = PBXGroup;
+			children = (
+				7B9B0D811E5ABCF60087B49A /* FlickrJsonItemDetails.h */,
+				7B9B0D821E5ABCF60087B49A /* FlickrJsonItemDetails.m */,
+				7B0D85FE1E5A17AE000251BA /* FlickrJsonModel.h */,
+				7B0D85FF1E5A17AE000251BA /* FlickrJsonModel.m */,
+			);
+			name = "JSON Models";
 			sourceTree = "<group>";
 		};
 		A1E79D4AE19C1A55A563C06F /* Pods */ = {
@@ -192,6 +207,7 @@
 		EDC53BF8BCFF195B5F6D21EE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7BCC00D71E5E12E700ACDF2B /* AudioToolbox.framework */,
 				7802D0382B3FF16ED010CB31 /* libPods-ImageFlipper.a */,
 				0840FE1CFF888419DB7A3758 /* libPods-ImageFlipperTests.a */,
 			);
@@ -218,7 +234,7 @@
 			);
 			name = ImageFlipper;
 			productName = ImageFlipper;
-			productReference = 7B0D85CE1E59E0A4000251BA /* ImageFlipper.app */;
+			productReference = 7B0D85CE1E59E0A4000251BA /* PicScrambler.app */;
 			productType = "com.apple.product-type.application";
 		};
 		7B0D85E61E59E0A4000251BA /* ImageFlipperTests */ = {
@@ -293,6 +309,8 @@
 				7B9B0D911E5B2BCA0087B49A /* background.png in Resources */,
 				7B9B0D8A1E5AE3640087B49A /* placeholder.png in Resources */,
 				7B0D85DE1E59E0A4000251BA /* Assets.xcassets in Resources */,
+				7BCC00DA1E5E15BE00ACDF2B /* placeholderwrong.png in Resources */,
+				7BC933CB1E5E1B9C0081C8CA /* appbg.png in Resources */,
 				7B0D85DC1E59E0A4000251BA /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -553,7 +571,7 @@
 				INFOPLIST_FILE = ImageFlipper/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.flipper.ImageFlipper;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = PicScrambler;
 			};
 			name = Debug;
 		};
@@ -566,7 +584,7 @@
 				INFOPLIST_FILE = ImageFlipper/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.flipper.ImageFlipper;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = PicScrambler;
 			};
 			name = Release;
 		};
