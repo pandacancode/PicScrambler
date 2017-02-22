@@ -24,9 +24,25 @@
  */
 -(id) initWithImagePath:(NSString*)path withIndex:(NSUInteger)index;
 
+
+/**
+ Stores web link for the image
+ */
 @property (nonatomic) NSString *imagePath;
+
+/**
+ Stores the index on image in the storing array
+ */
 @property (nonatomic) NSUInteger imageIndex;
+
+/**
+ Stores whether the image is visible or flipped. Used in toggling grids in the CollectionView. Default value is TRUE.
+ */
 @property (nonatomic) BOOL isVisible;
+
+/**
+ Stores whether the image was correctly guessed while playing or not. Used while generating the random index to avoid repitition. Default value is FALSE.
+ */
 @property (nonatomic) BOOL wasSelected;
 
 @end

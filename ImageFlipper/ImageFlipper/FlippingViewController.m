@@ -282,9 +282,28 @@
                                     [randomImage setImage:image];
                                     randomImage.alpha = 1.0;
                                 } completion:NULL];
+                
+                if (imagesLoaded == 9) {
+                    [[NSRunLoop mainRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
+                }
             }
-            if (imagesLoaded == 9) {
-                [[NSRunLoop mainRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
+            else {
+             
+                UIAlertController *failAlert = [UIAlertController alertControllerWithTitle:@"Error" message:@"Damn you Flickr!!. Please try again." preferredStyle:UIAlertControllerStyleAlert];
+                
+                UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"No,thanks!" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+                    [flipper resetValues];
+                    [self resetValues];
+                    [self flipAndFinish];
+                }];
+                UIAlertAction *reloadAction = [UIAlertAction actionWithTitle:@"Reload" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                    [flipper getFlickrPhotos];
+                }];
+                
+                [failAlert addAction:cancelAction];
+                [failAlert addAction:reloadAction];
+                
+                [self presentViewController:failAlert animated:YES completion:nil];
             }
         }];
     }

@@ -19,7 +19,6 @@
 		7B32F4041E5A85BE0031198C /* ServerCommunication.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B32F4031E5A85BE0031198C /* ServerCommunication.m */; };
 		7B9B0D831E5ABCF60087B49A /* FlickrJsonItemDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B9B0D821E5ABCF60087B49A /* FlickrJsonItemDetails.m */; };
 		7B9B0D8A1E5AE3640087B49A /* placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 7B9B0D891E5AE3640087B49A /* placeholder.png */; };
-		7B9B0D8F1E5B27F60087B49A /* FlippingCollectionReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B9B0D8E1E5B27F60087B49A /* FlippingCollectionReusableView.m */; };
 		7B9B0D911E5B2BCA0087B49A /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = 7B9B0D901E5B2BCA0087B49A /* background.png */; };
 		7B9B0D931E5B2E7A0087B49A /* buttonbg.png in Resources */ = {isa = PBXBuildFile; fileRef = 7B9B0D921E5B2E7A0087B49A /* buttonbg.png */; };
 		7B9B0D961E5B75CF0087B49A /* ImageObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B9B0D951E5B75CF0087B49A /* ImageObject.m */; };
@@ -66,8 +65,6 @@
 		7B9B0D811E5ABCF60087B49A /* FlickrJsonItemDetails.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlickrJsonItemDetails.h; sourceTree = "<group>"; };
 		7B9B0D821E5ABCF60087B49A /* FlickrJsonItemDetails.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlickrJsonItemDetails.m; sourceTree = "<group>"; };
 		7B9B0D891E5AE3640087B49A /* placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = placeholder.png; sourceTree = "<group>"; };
-		7B9B0D8D1E5B27F60087B49A /* FlippingCollectionReusableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlippingCollectionReusableView.h; sourceTree = "<group>"; };
-		7B9B0D8E1E5B27F60087B49A /* FlippingCollectionReusableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlippingCollectionReusableView.m; sourceTree = "<group>"; };
 		7B9B0D901E5B2BCA0087B49A /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
 		7B9B0D921E5B2E7A0087B49A /* buttonbg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = buttonbg.png; sourceTree = "<group>"; };
 		7B9B0D941E5B75CF0087B49A /* ImageObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageObject.h; sourceTree = "<group>"; };
@@ -124,8 +121,6 @@
 			children = (
 				7B9B0D881E5AE3510087B49A /* Resources */,
 				7BCC00D61E5E04A600ACDF2B /* JSON Models */,
-				7B9B0D8E1E5B27F60087B49A /* FlippingCollectionReusableView.m */,
-				7B9B0D8D1E5B27F60087B49A /* FlippingCollectionReusableView.h */,
 				7B9B0D941E5B75CF0087B49A /* ImageObject.h */,
 				7B9B0D951E5B75CF0087B49A /* ImageObject.m */,
 				7B32F4021E5A85BE0031198C /* ServerCommunication.h */,
@@ -227,6 +222,7 @@
 				7B0D85CC1E59E0A4000251BA /* Resources */,
 				D44243342A8929A3F20FA592 /* [CP] Embed Pods Frameworks */,
 				9158FAF82CF8D1E997FF6743 /* [CP] Copy Pods Resources */,
+				7BC933CC1E5E221F0081C8CA /* Documentation */,
 			);
 			buildRules = (
 			);
@@ -340,6 +336,20 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
+		7BC933CC1E5E221F0081C8CA /* Documentation */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = Documentation;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "#appledoc Xcode script\n# Start constants # --index-desc \"${PROJECT_DIR}/Readme.md\" \\\ntarget=\"iphoneos\";\ncompany=\"AB\"\ncompanyID=\"com.flipper\";\ncompanyURL=\"http://www.aaa.com\";\ntarget=\"iphoneos\";\noutputPath=\"${PWD}/Docs\";\n# End constants\n/usr/local/bin/appledoc \\\n--index-desc \"${PROJECT_DIR}/Documentation\" \\\n--project-name \"PicScrambler\" \\\n--project-company \"${company}\" \\\n--company-id \"${companyID}\" \\\n--output \"${outputPath}\" \\\n--finalize-docset \\\n--docset-platform-family \"${target}\" \\\n--ignore \"*.m\" \\\n--ignore \"Pods\" \\\n--logformat xcode \\\n--keep-intermediate-files \\\n--no-repeat-first-par \\\n--no-warn-invalid-crossref \\\n--exit-threshold 2 \\\n\"${PROJECT_DIR}\"";
+		};
 		9158FAF82CF8D1E997FF6743 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -427,7 +437,6 @@
 				7B0D85FC1E5A05D9000251BA /* FlipperModel.m in Sources */,
 				7B0D85D61E59E0A4000251BA /* AppDelegate.m in Sources */,
 				7B32F4041E5A85BE0031198C /* ServerCommunication.m in Sources */,
-				7B9B0D8F1E5B27F60087B49A /* FlippingCollectionReusableView.m in Sources */,
 				7B0D85D31E59E0A4000251BA /* main.m in Sources */,
 				7B0D85F81E59E26C000251BA /* FlippingViewController.m in Sources */,
 				7B9B0D831E5ABCF60087B49A /* FlickrJsonItemDetails.m in Sources */,

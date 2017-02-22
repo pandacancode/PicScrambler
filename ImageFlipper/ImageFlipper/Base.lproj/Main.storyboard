@@ -35,20 +35,20 @@
                                 </items>
                             </navigationBar>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Dcj-sR-sYU">
-                                <rect key="frame" x="17" y="198" width="340" height="449"/>
+                                <rect key="frame" x="17" y="219" width="340" height="379"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="449" id="9cR-BW-Ro0"/>
+                                    <constraint firstAttribute="height" constant="379" id="9cR-BW-Ro0"/>
                                 </constraints>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Lo5-SL-BHP">
                                     <size key="itemSize" width="50" height="50"/>
-                                    <size key="headerReferenceSize" width="340" height="75"/>
-                                    <size key="footerReferenceSize" width="340" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" tag="101" contentMode="center" reuseIdentifier="Cell" id="Hq3-fU-7eJ">
-                                        <rect key="frame" x="0.0" y="75" width="110" height="110"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="110" height="110"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="110" height="110"/>
@@ -69,61 +69,6 @@
                                         <size key="customSize" width="110" height="110"/>
                                     </collectionViewCell>
                                 </cells>
-                                <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" tag="80" contentMode="center" reuseIdentifier="header" id="HGS-l4-MnB" customClass="FlippingCollectionReusableView">
-                                    <rect key="frame" x="0.0" y="0.0" width="340" height="75"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <button hidden="YES" opaque="NO" tag="81" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L4Y-Ai-70I">
-                                            <rect key="frame" x="17" y="22" width="92" height="30"/>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="92" id="Tt0-01-zvG"/>
-                                            </constraints>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <state key="normal" title="BIRDS" backgroundImage="buttonbg.png">
-                                                <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                            </state>
-                                        </button>
-                                        <button hidden="YES" opaque="NO" tag="83" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0GU-nd-7wm">
-                                            <rect key="frame" x="231" y="22" width="92" height="30"/>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="92" id="YER-RB-swu"/>
-                                            </constraints>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <state key="normal" title="CARS" backgroundImage="buttonbg.png">
-                                                <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                            </state>
-                                        </button>
-                                        <button hidden="YES" opaque="NO" tag="82" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vNz-3E-ozx">
-                                            <rect key="frame" x="128" y="22" width="84" height="30"/>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="84" id="Non-Bv-uMK"/>
-                                            </constraints>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <state key="normal" title="FLOWERS" backgroundImage="buttonbg.png">
-                                                <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                            </state>
-                                        </button>
-                                    </subviews>
-                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                    <constraints>
-                                        <constraint firstAttribute="trailingMargin" secondItem="0GU-nd-7wm" secondAttribute="trailing" constant="9" id="0Tf-4P-Ne3"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="vNz-3E-ozx" secondAttribute="bottom" constant="15" id="2no-ht-cXo"/>
-                                        <constraint firstItem="0GU-nd-7wm" firstAttribute="top" secondItem="HGS-l4-MnB" secondAttribute="topMargin" constant="14" id="Kko-vN-WoZ"/>
-                                        <constraint firstItem="vNz-3E-ozx" firstAttribute="top" secondItem="HGS-l4-MnB" secondAttribute="topMargin" constant="14" id="LKJ-Eo-k0u"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="L4Y-Ai-70I" secondAttribute="bottom" constant="15" id="OLw-BD-ZPz"/>
-                                        <constraint firstItem="L4Y-Ai-70I" firstAttribute="leading" secondItem="HGS-l4-MnB" secondAttribute="leadingMargin" constant="9" id="f1x-fe-cSP"/>
-                                        <constraint firstItem="L4Y-Ai-70I" firstAttribute="top" secondItem="HGS-l4-MnB" secondAttribute="topMargin" constant="14" id="j19-f1-ExS"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="0GU-nd-7wm" secondAttribute="bottom" constant="15" id="jQs-2U-tEx"/>
-                                        <constraint firstItem="vNz-3E-ozx" firstAttribute="centerX" secondItem="HGS-l4-MnB" secondAttribute="centerX" id="s2k-hI-cww"/>
-                                    </constraints>
-                                </collectionReusableView>
-                                <collectionReusableView key="sectionFooterView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" tag="90" contentMode="center" reuseIdentifier="footer" id="4KU-mk-SHV" customClass="FlippingCollectionReusableView">
-                                    <rect key="frame" x="0.0" y="185" width="340" height="50"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </collectionReusableView>
                             </collectionView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1GD-15-Tvz">
                                 <rect key="frame" x="16" y="54" width="343" height="128"/>
@@ -177,11 +122,11 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Dcj-sR-sYU" secondAttribute="bottom" constant="20" id="KdJ-cs-6za"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Dcj-sR-sYU" secondAttribute="bottom" constant="69" id="KdJ-cs-6za"/>
                             <constraint firstItem="8sP-r5-2lR" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="L8a-HM-8AK"/>
                             <constraint firstItem="1GD-15-Tvz" firstAttribute="top" secondItem="1v3-xe-YXY" secondAttribute="bottom" constant="10" id="VBC-0G-u9U"/>
                             <constraint firstItem="1GD-15-Tvz" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="WQh-7m-Ksi"/>
-                            <constraint firstItem="Dcj-sR-sYU" firstAttribute="top" secondItem="1GD-15-Tvz" secondAttribute="bottom" constant="16" id="XmV-lG-sYz"/>
+                            <constraint firstItem="Dcj-sR-sYU" firstAttribute="top" secondItem="1GD-15-Tvz" secondAttribute="bottom" constant="37" id="XmV-lG-sYz"/>
                             <constraint firstItem="Dcj-sR-sYU" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="1" id="gdx-lU-KIZ"/>
                             <constraint firstItem="8sP-r5-2lR" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="imu-r9-JJg"/>
                             <constraint firstItem="1GD-15-Tvz" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="oUm-x4-GMG"/>
@@ -191,7 +136,7 @@
                             <constraint firstAttribute="trailingMargin" secondItem="Dcj-sR-sYU" secondAttribute="trailing" constant="2" id="rtQ-u2-w6W"/>
                             <constraint firstItem="1v3-xe-YXY" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="uGw-zl-5C4"/>
                             <constraint firstItem="1v3-xe-YXY" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="wxx-jJ-CaU"/>
-                            <constraint firstItem="Dcj-sR-sYU" firstAttribute="top" secondItem="1GD-15-Tvz" secondAttribute="bottom" constant="16" id="yWz-Jk-LDd"/>
+                            <constraint firstItem="Dcj-sR-sYU" firstAttribute="top" secondItem="1GD-15-Tvz" secondAttribute="bottom" constant="37" id="yWz-Jk-LDd"/>
                         </constraints>
                     </view>
                     <connections>
@@ -204,12 +149,11 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="95" y="-62"/>
+            <point key="canvasLocation" x="93.599999999999994" y="-62.518740629685162"/>
         </scene>
     </scenes>
     <resources>
         <image name="appbg.png" width="640" height="1136"/>
-        <image name="buttonbg.png" width="29" height="47"/>
         <image name="placeholder.png" width="420" height="420"/>
     </resources>
 </document>

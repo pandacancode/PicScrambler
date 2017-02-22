@@ -14,6 +14,10 @@
 #import "ServerCommunication.h"
 #import "ImageObject.h"
 
+
+/**
+ Protocol for a user to receive events/responses happening in 'FlipperModel' class
+ */
 @protocol FlipperDelegate <NSObject>
 
 /**
